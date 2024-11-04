@@ -4,8 +4,7 @@ public enum Direction {
     N, E, S, W;
 
     /**
-     *  Returns the direction to the left of the current direction.
-     * @return
+     * @return Devuelve la direccion que se encuentra a la izquierda de la direccion actual
      */
     public Direction left() {
         return switch (this) {
@@ -16,6 +15,9 @@ public enum Direction {
         };
     }
 
+    /**
+     * @return Devuelve la direccion que se encuentra a la derecha de la direccion actual
+     */
     public Direction right() {
         return switch (this) {
             case N -> E;

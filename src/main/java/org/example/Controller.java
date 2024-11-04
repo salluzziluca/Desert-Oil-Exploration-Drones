@@ -9,6 +9,13 @@ public class Controller  implements OutOfBoundsObserver{
         drones = new ArrayList<>();
     }
 
+    /**
+     * Crea la plateau segun su coordenada final
+     * Crea los drones inicializandolos en su posicion y direccion inicial correspondiente
+     * Mueve los drones segun los comandos de movimiento (M, L, R) -> Movement, Rotate Left, Rotate Right
+     * @param args un string con los diferentes comandos de creacion de plateu y drone
+     * @return un string con las posiciones finales de los drones
+     */
     public String processInput(String[] args) {
         // read the first line
         String[] plateauCoordinates = args[0].split(" ");

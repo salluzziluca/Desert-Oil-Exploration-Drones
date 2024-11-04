@@ -7,7 +7,7 @@ public class Drone {
     private int y;
     private Direction direction;
 
-    private ArrayList<OutOfBoundsObserver> observers;
+    private final ArrayList<OutOfBoundsObserver> observers;
 
     public Drone (int x, int y, Direction direction) {
         this.x = x;
@@ -16,6 +16,10 @@ public class Drone {
        observers = new ArrayList<>();
     }
 
+    /**
+     * Mueve el drone segun los comandos de movimiento (M, L, R) -> Movement, Rotate Left, Rotate Right
+     * @param droneMovement Un string con los diferentes comandos de movimiento
+     */
     public void move(String[] droneMovement) {
 
         for (String movement : droneMovement) {
@@ -35,6 +39,9 @@ public class Drone {
         }
     }
 
+    /**
+     * Mueve el drone hacia adelante segun direccion a la que este mirando en ese momento
+     */
     private void moveForward() {
         switch (direction) {
             case N:
@@ -69,6 +76,11 @@ public class Drone {
         observers.add(observer);
     }
 
+    /**
+     * Notifica a sus observers de su posicion actual
+     * @param x
+     * @param y
+     */
     public void notifyObservers(int x, int y) {
         for (OutOfBoundsObserver observer : observers) {
             observer.checkOutOfBounds(x, y);

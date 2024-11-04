@@ -17,6 +17,9 @@ public class Controller  implements OutOfBoundsObserver{
      * @return un string con las posiciones finales de los drones
      */
     public String processInput(String[] args) {
+        if (args.length == 0) {
+            throw new IllegalArgumentException("No input provided.");
+        }
         // read the first line
         String[] plateauCoordinates = args[0].split(" ");
         plateau = new Plateau(Integer.parseInt(plateauCoordinates[0]), Integer.parseInt(plateauCoordinates[1]));
@@ -24,7 +27,10 @@ public class Controller  implements OutOfBoundsObserver{
 
         for (int i = 1; i < args.length; i += 2) {
             String[] droneData = args[i].split(" ");
-            Drone drone = new Drone(Integer.parseInt(droneData[0]), Integer.parseInt(droneData[1]), Direction.valueOf(droneData[2]));
+            int droneX = Integer.parseInt(droneData[0]);
+            int droneY = Integer.parseInt(droneData[1]);
+            checkOutOfBounds(droneX, droneY);
+            Drone drone = new Drone(droneX, droneY, Direction.valueOf(droneData[2]));
             drones.add(drone);
             drone.addObserver(this);
             String[] droneMovement = args[i + 1].split("");

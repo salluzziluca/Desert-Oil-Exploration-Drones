@@ -26,7 +26,7 @@ MMRMMRMRRM
     }
 
     @Test
-    void testOutOfBounds(){
+    void testMovementOutOfBounds(){
         String input = """
 1 1
 0 0 N
@@ -37,5 +37,30 @@ MMM
         String[] args = input.split("\n");
         assertThrows(IllegalArgumentException.class, () -> controller.processInput(args));
     }
+
+    @Test
+    void testDroneCreationOutOfBounds(){
+        String input = """
+1 1
+2 2 N
+""";
+
+            Controller controller = new Controller();
+            String[] args = input.split("\n");
+            assertThrows(IllegalArgumentException.class, () -> controller.processInput(args));
+        }
+
+        @Test
+        void testNoInput(){
+            String input = "";
+            Controller controller = new Controller();
+            String[] args = input.split("\n");
+            assertThrows(IllegalArgumentException.class, () -> controller.processInput(args));
+        }
+
+
+        @Test
+        void testErrorProcessingInput() {
+        }
 
 }

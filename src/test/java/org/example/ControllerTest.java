@@ -25,4 +25,17 @@ MMRMMRMRRM
 
     }
 
+    @Test
+    void testOutOfBounds(){
+        String input = """
+1 1
+0 0 N
+MMM
+""";
+
+        Controller controller = new Controller();
+        String[] args = input.split("\n");
+        assertThrows(IllegalArgumentException.class, () -> controller.processInput(args));
+    }
+
 }

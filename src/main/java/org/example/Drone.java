@@ -1,14 +1,19 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Drone {
     private int x;
     private int y;
     private Direction direction;
 
+    private ArrayList<OutOfBoundsObserver> observers;
+
     public Drone (int x, int y, Direction direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
+       observers = new ArrayList<>();
     }
 
     public void move(String[] droneMovement) {
@@ -45,6 +50,7 @@ public class Drone {
                 x--;
                 break;
         }
+        notifyObservers(x, y);
     }
 
     public int getX() {
@@ -57,5 +63,15 @@ public class Drone {
 
     public String getDirection() {
         return direction.toString();
+    }
+
+    public void addObserver(OutOfBoundsObserver observer) {
+        observers.add(observer);
+    }
+
+    public void notifyObservers(int x, int y) {
+        for (OutOfBoundsObserver observer : observers) {
+            observer.checkOutOfBounds(x, y);
+        }
     }
 }

@@ -1,6 +1,6 @@
 package org.example;
 import java.util.ArrayList;
-public class Controller {
+public class Controller  implements OutOfBoundsObserver{
     Plateau plateau;
     ArrayList<Drone> drones;
 
@@ -19,10 +19,18 @@ public class Controller {
             String[] droneData = args[i].split(" ");
             Drone drone = new Drone(Integer.parseInt(droneData[0]), Integer.parseInt(droneData[1]), Direction.valueOf(droneData[2]));
             drones.add(drone);
+            drone.addObserver(this);
             String[] droneMovement = args[i + 1].split("");
             drone.move(droneMovement);
             result.append(drone.getX()).append(" ").append(drone.getY()).append(" ").append(drone.getDirection()).append("\n");
         }
         return result.toString().trim();
+    }
+
+    @Override
+    public void checkOutOfBounds(int x, int y) {
+        if (!plateau.isWithinBounds(x, y)) {
+            throw new IllegalArgumentException("Drone out of bounds: " + x + " " + y);
+        }
     }
 }

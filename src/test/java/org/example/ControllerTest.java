@@ -16,8 +16,7 @@ LMLMLMLMM
 MMRMMRMRRM
 """;
 
-        String output = "1 3 N\n" +
-                "5 1 E";
+        String output = "1 3 N 5 1 E";
         Controller controller = new Controller();
         String[] args = input.split("\n");
         String result = controller.processInput(args);

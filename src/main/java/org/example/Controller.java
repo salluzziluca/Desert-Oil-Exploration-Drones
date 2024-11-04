@@ -35,10 +35,10 @@ public class Controller  implements OutOfBoundsObserver{
             drone.addObserver(this);
             String[] droneMovement = args[i + 1].split("");
             drone.move(droneMovement);
-            result.append(drone.getX()).append(" ").append(drone.getY()).append(" ").append(drone.getDirection()).append("\n");
-        }
-        return result.toString().trim();
+            result.append(drone.getX()).append(" ").append(drone.getY()).append(" ").append(drone.getDirection()).append(" ");
     }
+    return result.toString().trim();
+}
 
     @Override
     public void checkOutOfBounds(int x, int y) {

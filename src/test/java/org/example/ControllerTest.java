@@ -1,13 +1,16 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-class ControllerTest {
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
+public class ControllerTest {
 
     @Test
-    void testConsigna(){
+    public void testConsigna(){
         String input = """
 5 5
 1 2 N
@@ -25,7 +28,7 @@ MMRMMRMRRM
     }
 
     @Test
-    void testMovementOutOfBounds(){
+    public void testMovementOutOfBounds(){
         String input = """
 1 1
 0 0 N
@@ -38,7 +41,7 @@ MMM
     }
 
     @Test
-    void testDroneCreationOutOfBounds(){
+    public void testDroneCreationOutOfBounds(){
         String input = """
 1 1
 2 2 N
@@ -50,7 +53,7 @@ MMM
         }
 
         @Test
-        void testNoInput(){
+        public void testNoInput(){
             String input = "";
             Controller controller = new Controller();
             String[] args = input.split("\n");
@@ -58,8 +61,5 @@ MMM
         }
 
 
-        @Test
-        void testErrorProcessingInput() {
-        }
 
 }

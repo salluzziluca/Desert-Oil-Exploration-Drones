@@ -1,13 +1,15 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
-class PlateauTest {
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class PlateauTest {
 
     @Test
-    void isWithinBounds() {
+    public void isWithinBounds() {
         Plateau plateau = new Plateau(5, 5);
         assertTrue(plateau.isWithinBounds(0, 0));
         assertTrue(plateau.isWithinBounds(5, 5));

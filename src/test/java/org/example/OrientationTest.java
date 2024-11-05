@@ -1,19 +1,20 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
-class OrientationTest {
+import static org.junit.Assert.assertEquals;
+
+public class OrientationTest {
 
     @Test
-    void left() {
+    public void left() {
         Orientation orientation = Orientation.N;
         assertEquals(Orientation.W, orientation.left());
     }
 
     @Test
-    void right() {
+    public void right() {
         Orientation orientation = Orientation.N;
         assertEquals(Orientation.E, orientation.right());
     }

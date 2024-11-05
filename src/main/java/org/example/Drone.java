@@ -86,4 +86,8 @@ public class Drone {
             observer.checkOutOfBounds(x, y);
         }
     }
+
+    public Orientation getOrientation() {
+        return orientation;
+    }
 }

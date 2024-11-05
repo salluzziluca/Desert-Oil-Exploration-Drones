@@ -10,10 +10,10 @@ public class DroneApiServer {
 
     public static void main(String[] args) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(8083), 0);
-        server.createContext("/process-command", new DroneHandler());
+        server.createContext("/drones/process-command", new DroneHandler());
         server.setExecutor(null); // default executor
         server.start();
-        System.out.println("Server started on port 8080...");
+        System.out.println("Server started on port 8083...");
     }
 
     static class DroneHandler implements HttpHandler {

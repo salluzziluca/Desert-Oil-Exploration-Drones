@@ -78,8 +78,8 @@ public class Drone {
 
     /**
      * Notifica a sus observers de su posicion actual
-     * @param x
-     * @param y
+     * @param x posicion x
+     * @param y posicion y
      */
     public void notifyObservers(int x, int y) {
         for (OutOfBoundsObserver observer : observers) {

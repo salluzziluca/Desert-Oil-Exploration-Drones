@@ -7,7 +7,7 @@ En este proyecto se buscó desarollar un sistema de movimiento y trackeo de dron
 Para poder correr el programa se necesita tener instalado java 22 o superior y maven 4.0 o superior.
 
 ## Instrucciones de uso
-Este programa se ejecuta a traves de la terminal. Para poder correrlo se debe clonar el repositorio y luego ejecutar el siguiente comando en la terminal:
+Este programa se ejecuta a traves de la terminal. Para poder correrlo se debe clonar el repositorio y luego ejecutar los siguientes comandos en la terminal:
 
 ```bash
 mvn clean package

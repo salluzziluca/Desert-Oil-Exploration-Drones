@@ -60,6 +60,17 @@ MMM
             assertThrows(IllegalArgumentException.class, () -> controller.processInput(args));
         }
 
+        @Test
+        public void testOnlyPlateau(){
+            String input = """
+5 5
+""";
+            String output = "";
+            Controller controller = new Controller();
+            String[] args = input.split("\n");
+            String result = controller.processInput(args);
+            assertEquals(output, result);
+        }
 
 
 }

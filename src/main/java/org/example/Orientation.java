@@ -1,12 +1,12 @@
 package org.example;
 
-public enum Direction {
+public enum Orientation {
     N, E, S, W;
 
     /**
-     * @return Devuelve la direccion que se encuentra a la izquierda de la direccion actual
+     * @return Devuelve la orientacion que se encuentra a la izquierda de la orientacion actual
      */
-    public Direction left() {
+    public Orientation left() {
         return switch (this) {
             case N -> W;
             case E -> N;
@@ -16,9 +16,9 @@ public enum Direction {
     }
 
     /**
-     * @return Devuelve la direccion que se encuentra a la derecha de la direccion actual
+     * @return Devuelve la orientacion que se encuentra a la derecha de la orientacion actual
      */
-    public Direction right() {
+    public Orientation right() {
         return switch (this) {
             case N -> E;
             case E -> S;

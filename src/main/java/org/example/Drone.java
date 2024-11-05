@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Drone {
     private int x;
     private int y;
-    private Direction direction;
+    private Orientation orientation;
 
     private final ArrayList<OutOfBoundsObserver> observers;
 
-    public Drone (int x, int y, Direction direction) {
+    public Drone (int x, int y, Orientation orientation) {
         this.x = x;
         this.y = y;
-        this.direction = direction;
+        this.orientation = orientation;
        observers = new ArrayList<>();
     }
 
@@ -25,10 +25,10 @@ public class Drone {
         for (String movement : droneMovement) {
             switch (movement) {
                 case "L":
-                    direction = direction.left();
+                    orientation = orientation.left();
                     break;
                 case "R":
-                    direction = direction.right();
+                    orientation = orientation.right();
                     break;
                 case "M":
                     moveForward();
@@ -43,7 +43,7 @@ public class Drone {
      * Mueve el drone hacia adelante segun direccion a la que este mirando en ese momento
      */
     private void moveForward() {
-        switch (direction) {
+        switch (orientation) {
             case N:
                 y++;
                 break;
@@ -69,7 +69,7 @@ public class Drone {
     }
 
     public String getDirection() {
-        return direction.toString();
+        return orientation.toString();
     }
 
     public void addObserver(OutOfBoundsObserver observer) {
